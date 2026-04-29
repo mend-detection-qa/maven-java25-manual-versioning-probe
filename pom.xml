@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.1.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0
+                             https://maven.apache.org/xsd/maven-4.1.0.xsd">
+
+  <!--
+    Maven 4 model version.
+    Maven 3.9.x will reject this POM at parse time because it only
+    understands modelVersion 4.0.0.  A full build therefore requires
+    Maven 4.0.0-rc-3 or later.  The source files and dependency graph
+    are still fully correct and can be inspected / depgraph-extracted
+    by any tool that reads raw XML (e.g. Mend UA resolver).
+  -->
+  <modelVersion>4.1.0</modelVersion>
+
+  <groupId>com.example.probe</groupId>
+  <artifactId>maven-java25-manual-versioning-probe</artifactId>
+  <version>${revision}</version>
+  <packaging>pom</packaging>
+
+  <name>maven-java25-manual-versioning-probe</name>
+  <description>
+    Probe project for Mend SCA detection testing.
+    Exercises: Maven 4 modelVersion 4.1.0, subprojects element,
+    CI-friendly ${revision} versioning, JPMS module-info, Java 25 release,
+    sealed interfaces, records, pattern-matching switch,
+    and manual (non-BOM) dependency versioning.
+  </description>
+
+  <properties>
+    <!-- CI-friendly version placeholder (Maven 4 feature) -->
+    <revision>1.0.0</revision>
+
+    <!-- Java release — requires JDK 25+ at build time -->
+    <maven.compiler.release>25</maven.compiler.release>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
+
+  <!--
+    Maven 4 renames <modules> to <subprojects>.
+    Maven 3.9.x does not recognise <subprojects> and will not discover
+    child modules — another Maven 4 requirement.
+  -->
+  <subprojects>
+    <subproject>core</subproject>
+    <subproject>app</subproject>
+  </subprojects>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.13.0</version>
+          <configuration>
+            <release>25</release>
+          </configuration>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+  </build>
+
+</project>

@@ -1,0 +1,388 @@
+{
+  "schema_version": "1.0",
+  "pm": "maven",
+  "pm_version_tested": "4.0",
+  "source_file": "/Users/palinasupranovich/PycharmProjects/qa-detection-repo-integration/temp_autotest_workflow/maven-java25-manual-versioning-probe/pom.xml",
+  "root": {
+    "name": "com.example.probe:maven-java25-manual-versioning-probe",
+    "version": "1.0.0",
+    "dependencies": [
+      {
+        "name": "com.example.probe:core",
+        "version": "1.0.0",
+        "scope": "compile",
+        "direct": true,
+        "module": "core",
+        "dependencies": [
+          {
+            "name": "org.slf4j:slf4j-api",
+            "version": "2.0.16",
+            "scope": "compile",
+            "direct": true,
+            "dependencies": []
+          },
+          {
+            "name": "com.fasterxml.jackson.core:jackson-databind",
+            "version": "2.18.2",
+            "scope": "compile",
+            "direct": true,
+            "dependencies": [
+              {
+                "name": "com.fasterxml.jackson.core:jackson-annotations",
+                "version": "2.18.2",
+                "scope": "compile",
+                "direct": false,
+                "dependencies": []
+              },
+              {
+                "name": "com.fasterxml.jackson.core:jackson-core",
+                "version": "2.18.2",
+                "scope": "compile",
+                "direct": false,
+                "dependencies": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "com.example.probe:app",
+        "version": "1.0.0",
+        "scope": "compile",
+        "direct": true,
+        "module": "app",
+        "dependencies": [
+          {
+            "name": "com.example.probe:core",
+            "version": "1.0.0",
+            "scope": "compile",
+            "direct": true,
+            "dependencies": [
+              {
+                "name": "org.slf4j:slf4j-api",
+                "version": "2.0.16",
+                "scope": "compile",
+                "direct": false,
+                "dependencies": []
+              },
+              {
+                "name": "com.fasterxml.jackson.core:jackson-databind",
+                "version": "2.18.2",
+                "scope": "compile",
+                "direct": false,
+                "dependencies": [
+                  {
+                    "name": "com.fasterxml.jackson.core:jackson-annotations",
+                    "version": "2.18.2",
+                    "scope": "compile",
+                    "direct": false,
+                    "dependencies": []
+                  },
+                  {
+                    "name": "com.fasterxml.jackson.core:jackson-core",
+                    "version": "2.18.2",
+                    "scope": "compile",
+                    "direct": false,
+                    "dependencies": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "name": "ch.qos.logback:logback-classic",
+            "version": "1.5.12",
+            "scope": "runtime",
+            "direct": true,
+            "dependencies": [
+              {
+                "name": "ch.qos.logback:logback-core",
+                "version": "1.5.12",
+                "scope": "runtime",
+                "direct": false,
+                "dependencies": []
+              },
+              {
+                "name": "org.slf4j:slf4j-api",
+                "version": "2.0.16",
+                "scope": "runtime",
+                "direct": false,
+                "mediation": "version 2.0.16 nearest-wins: same version already declared in core (compile scope); scope mediated to runtime because logback-classic is runtime-scoped",
+                "dependencies": []
+              }
+            ]
+          },
+          {
+            "name": "org.junit.jupiter:junit-jupiter",
+            "version": "5.11.4",
+            "scope": "test",
+            "direct": true,
+            "dependencies": [
+              {
+                "name": "org.junit.jupiter:junit-jupiter-api",
+                "version": "5.11.4",
+                "scope": "test",
+                "direct": false,
+                "dependencies": [
+                  {
+                    "name": "org.opentest4j:opentest4j",
+                    "version": "1.3.0",
+                    "scope": "test",
+                    "direct": false,
+                    "dependencies": []
+                  },
+                  {
+                    "name": "org.junit.platform:junit-platform-commons",
+                    "version": "1.11.4",
+                    "scope": "test",
+                    "direct": false,
+                    "dependencies": []
+                  },
+                  {
+                    "name": "org.apiguardian:apiguardian-api",
+                    "version": "1.1.2",
+                    "scope": "test",
+                    "direct": false,
+                    "dependencies": []
+                  }
+                ]
+              },
+              {
+                "name": "org.junit.jupiter:junit-jupiter-params",
+                "version": "5.11.4",
+                "scope": "test",
+                "direct": false,
+                "dependencies": []
+              },
+              {
+                "name": "org.junit.jupiter:junit-jupiter-engine",
+                "version": "5.11.4",
+                "scope": "test",
+                "direct": false,
+                "dependencies": [
+                  {
+                    "name": "org.junit.platform:junit-platform-engine",
+                    "version": "1.11.4",
+                    "scope": "test",
+                    "direct": false,
+                    "dependencies": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "packages": {
+    "com.example.probe:core": {
+      "version": "1.0.0",
+      "source": "local",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.slf4j:slf4j-api",
+        "com.fasterxml.jackson.core:jackson-databind"
+      ]
+    },
+    "com.example.probe:app": {
+      "version": "1.0.0",
+      "source": "local",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "com.example.probe:core",
+        "ch.qos.logback:logback-classic",
+        "org.junit.jupiter:junit-jupiter"
+      ]
+    },
+    "org.slf4j:slf4j-api": {
+      "version": "2.0.16",
+      "source": "registry",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    },
+    "com.fasterxml.jackson.core:jackson-databind": {
+      "version": "2.18.2",
+      "source": "registry",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "com.fasterxml.jackson.core:jackson-annotations",
+        "com.fasterxml.jackson.core:jackson-core"
+      ]
+    },
+    "com.fasterxml.jackson.core:jackson-annotations": {
+      "version": "2.18.2",
+      "source": "registry",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    },
+    "com.fasterxml.jackson.core:jackson-core": {
+      "version": "2.18.2",
+      "source": "registry",
+      "scope": "compile",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    },
+    "ch.qos.logback:logback-classic": {
+      "version": "1.5.12",
+      "source": "registry",
+      "scope": "runtime",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "ch.qos.logback:logback-core",
+        "org.slf4j:slf4j-api"
+      ]
+    },
+    "ch.qos.logback:logback-core": {
+      "version": "1.5.12",
+      "source": "registry",
+      "scope": "runtime",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    },
+    "org.junit.jupiter:junit-jupiter": {
+      "version": "5.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.junit.jupiter:junit-jupiter-api",
+        "org.junit.jupiter:junit-jupiter-params",
+        "org.junit.jupiter:junit-jupiter-engine"
+      ]
+    },
+    "org.junit.jupiter:junit-jupiter-api": {
+      "version": "5.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.opentest4j:opentest4j",
+        "org.junit.platform:junit-platform-commons",
+        "org.apiguardian:apiguardian-api"
+      ]
+    },
+    "org.junit.jupiter:junit-jupiter-params": {
+      "version": "5.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.junit.jupiter:junit-jupiter-api",
+        "org.junit.platform:junit-platform-commons",
+        "org.apiguardian:apiguardian-api"
+      ]
+    },
+    "org.junit.jupiter:junit-jupiter-engine": {
+      "version": "5.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.junit.platform:junit-platform-engine",
+        "org.junit.jupiter:junit-jupiter-api",
+        "org.apiguardian:apiguardian-api"
+      ]
+    },
+    "org.junit.platform:junit-platform-engine": {
+      "version": "1.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.opentest4j:opentest4j",
+        "org.junit.platform:junit-platform-commons",
+        "org.apiguardian:apiguardian-api"
+      ]
+    },
+    "org.junit.platform:junit-platform-commons": {
+      "version": "1.11.4",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": [
+        "org.apiguardian:apiguardian-api"
+      ]
+    },
+    "org.opentest4j:opentest4j": {
+      "version": "1.3.0",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    },
+    "org.apiguardian:apiguardian-api": {
+      "version": "1.1.2",
+      "source": "registry",
+      "scope": "test",
+      "type": "jar",
+      "classifier": null,
+      "optional": false,
+      "exclusions": [],
+      "dependencies": []
+    }
+  },
+  "summary": {
+    "total_packages": 16,
+    "direct_dependencies": 4,
+    "scopes_included": ["compile", "runtime", "test"],
+    "modules_included": ["core", "app"],
+    "has_bom": false,
+    "maven4_caveats": [
+      "modelVersion 4.1.0 — Maven 3.9.x rejects this POM at parse time; Maven 4.0.0-rc-3+ required for full build",
+      "<subprojects> element used instead of <modules> — not recognised by Maven 3.9.x",
+      "${revision} CI-friendly version placeholder resolves to 1.0.0 via parent <properties>",
+      "Tree built from POM declarations and known transitive closures (mvn dependency:tree not run — Maven 4 not available in resolver environment)"
+    ]
+  }
+}
