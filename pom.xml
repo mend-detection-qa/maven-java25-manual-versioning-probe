@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.1.0"
+p<project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.1.0
-                             https://maven.apache.org/xsd/maven-4.1.0.xsd">
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <!--
-    Maven 4 model version.
-    Maven 3.9.x will reject this POM at parse time because it only
-    understands modelVersion 4.0.0.  A full build therefore requires
-    Maven 4.0.0-rc-3 or later.  The source files and dependency graph
-    are still fully correct and can be inspected / depgraph-extracted
-    by any tool that reads raw XML (e.g. Mend UA resolver).
+    modelVersion 4.0.0 is the Maven 4 default model. The newer 4.1.0
+    model with <subprojects> is gated behind specific Maven 4 RCs,
+    so we stick to 4.0.0 for tooling compatibility (incl. Mend's
+    scanner Maven). Maven 4 features still in play: build/consumer
+    POM split, ${revision}, build-pom resolution semantics.
   -->
-  <modelVersion>4.1.0</modelVersion>
+  <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.example.probe</groupId>
   <artifactId>maven-java25-manual-versioning-probe</artifactId>
@@ -41,15 +40,11 @@
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
 
-  <!--
-    Maven 4 renames <modules> to <subprojects>.
-    Maven 3.9.x does not recognise <subprojects> and will not discover
-    child modules — another Maven 4 requirement.
-  -->
-  <subprojects>
-    <subproject>core</subproject>
-    <subproject>app</subproject>
-  </subprojects>
+  <!-- Standard <modules> aggregator (works on Maven 3.9.x and Maven 4). -->
+  <modules>
+    <module>core</module>
+    <module>app</module>
+  </modules>
 
   <build>
     <pluginManagement>
