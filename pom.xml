@@ -26,6 +26,8 @@
     CI-friendly ${revision} versioning, JPMS module-info, Java 25 release,
     sealed interfaces, records, pattern-matching switch,
     and manual (non-BOM) dependency versioning.
+    Mend scan toolchain versions are pinned manually via .whitesource
+    (scanSettings.versioning).
   </description>
 
   <properties>
