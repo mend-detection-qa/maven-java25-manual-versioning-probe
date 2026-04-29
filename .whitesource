@@ -5,7 +5,6 @@
     "projectToken": "",
     "baseBranches": [],
     "versioning": {
-      "maven": "4.0",
       "java": "25"
     }
   },
